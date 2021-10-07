@@ -1,0 +1,362 @@
+{
+  "hardcore_challenge": {
+    "enabled": false,
+    "comment_0": "rules 1 - DeadlySlob's hardcore challenge - Season 5",
+    "comment_1": "    You can 'insure' but never be returned.",
+    "comment_2": "    Official rules - https://www.twitlonger.com/show/n_1sr500b",
+    "comment_3": "rules 2 - Markstrom's Ethical Tarkov",
+    "comment_4": "    Official rules - https://www.youtube.com/watch?v=OJXFVOzelAs",
+    "rules": 1
+  },
+  "cheat": {
+    "enabled": true,
+    "comment_0": "recommend - false / true",
+    "comment_1": "secure_container - true: give negative weight for secure containers",
+    "comment_2": "training_stim - true: add training stims to therapist",
+    "secure_container": false,
+    "training_stim": true
+  },
+  "loot_spawnrate": {
+    "enabled": true,
+    "comment_0": "recommend - 40",
+    "comment_1": "spawnrate for loose/dynamic loots",
+    "dynamic": 40
+  },
+  "pmc_conversion_chance": {
+    "enabled": true,
+    "comment_0": "default - true / false / false / false / 0 / 0 / true",
+    "comment_1": "as_boss - true: spawn pmc bots at the beginning of raid (as group)",
+    "comment_2": "as_assault - true: spawn pmc bots constantly (as individual, same factions won't be hostile)",
+    "comment_3": "adaptive - true: number of pmc bots will be increased when you have pmc kill task (only if 'as_assault' and 'as_boss' are 'false'. disabled for 'factory'.)",
+    "comment_4": "apply_assault_group - for development use",
+    "comment_5": "from / to - scav to pmc conversion chance",
+    "comment_6": "usec_chance - 0: all bears, 100: all usecs",
+    "comment_7": "peek_spawn - true: print pmc bot spawns to log",
+    "as_boss": true,
+    "as_assault": false,
+    "adaptive": false,
+    "apply_assault_group": false,
+    "from": 0,
+    "to": 0,
+    "usec_chance": 50,
+    "peek_spawn": true,
+    "pmc_slots": {
+      "bigmap": {
+        "comment": "default - 7 / 11 / ZoneBrige,ZoneCrossRoad,ZoneFactorySide,ZoneOldAZS,ZoneBlockPost,ZoneTankSquare,ZoneCustoms,ZoneDormitory,ZoneGasStation,ZoneFactoryCenter,ZoneWade,ZoneScavBase",
+        "min": 13,
+        "max": 13,
+        "spawn_points": "ZoneBrige,ZoneCrossRoad,ZoneFactorySide,ZoneOldAZS,ZoneBlockPost,ZoneTankSquare,ZoneCustoms,ZoneDormitory,ZoneGasStation,ZoneFactoryCenter,ZoneWade,ZoneScavBase"
+      },
+      "factory4_day": {
+        "comment": "default - 4 / 5 / BotZone",
+        "min": 6,
+        "max": 6,
+        "spawn_points": "BotZone"
+      },
+      "factory4_night": {
+        "comment": "default - 4 / 5 / BotZone",
+        "min": 6,
+        "max": 6,
+        "spawn_points": "BotZone"
+      },
+      "interchange": {
+        "comment": "default - 9 / 13 / ZoneIDEA,ZoneRoad,ZoneCenter,ZoneCenterBot,ZoneOLI,ZoneOLIPark,ZoneGoshan,ZonePowerStation,ZoneTrucks,ZoneIDEAPark",
+        "min": 15,
+        "max": 15,
+        "spawn_points": "ZoneIDEA,ZoneRoad,ZoneCenter,ZoneCenterBot,ZoneOLI,ZoneOLIPark,ZoneGoshan,ZonePowerStation,ZoneTrucks,ZoneIDEAPark"
+      },
+      "laboratory": {
+        "comment": "default - 5 / 9 / BotZoneMain",
+        "min": 11,
+        "max": 11,
+        "spawn_points": "BotZoneMain"
+      },
+      "rezervbase": {
+        "comment": "default - 8 / 11 / ZoneRailStrorage,ZonePTOR1,ZonePTOR2,ZoneBarrack,ZoneBunkerStorage,ZoneSubStorage,ZoneSubCommand",
+        "min": 13,
+        "max": 13,
+        "spawn_points": "ZoneRailStrorage,ZonePTOR1,ZonePTOR2,ZoneBarrack,ZoneBunkerStorage,ZoneSubStorage,ZoneSubCommand"
+      },
+      "shoreline": {
+        "comment": "default - 9 / 12 / ZoneSanatorium,ZonePassFar,ZonePassClose,ZoneTunnel,ZoneStartVillage,ZoneBunker,ZoneGreenHouses,ZoneIsland,ZoneGasStation,ZoneMeteoStation,ZonePowerStation,ZoneBusStation,ZoneRailWays,ZonePort,ZoneForestTruck,ZoneForestSpawn",
+        "min": 15,
+        "max": 15,
+        "spawn_points": "ZoneSanatorium,ZonePassFar,ZonePassClose,ZoneTunnel,ZoneStartVillage,ZoneBunker,ZoneGreenHouses,ZoneIsland,ZoneGasStation,ZoneMeteoStation,ZonePowerStation,ZoneBusStation,ZoneRailWays,ZonePort,ZoneForestTruck,ZoneForestSpawn"
+      },
+      "woods": {
+        "comment": "default - 7 / 13 / ZoneClearVill,ZoneScavBase2,ZoneRedHouse,ZoneHighRocks,ZoneWoodCutter,ZoneHouse,ZoneBigRocks,ZoneRoad,ZoneMiniHouse,ZoneBrokenVill",
+        "min": 15,
+        "max": 15,
+        "spawn_points": "ZoneClearVill,ZoneScavBase2,ZoneRedHouse,ZoneHighRocks,ZoneWoodCutter,ZoneHouse,ZoneBigRocks,ZoneRoad,ZoneMiniHouse,ZoneBrokenVill"
+      }
+    },
+    "group_size": {
+      "comment_0": "probability distribution model for PMC group size",
+      "comment_1": "notation (chance for each size) - [size 1, size 2, size 3, size 4, size 5]",
+      "comment_2": "reasonable guess #1 - [50, 28, 14, 6, 2]",
+      "comment_3": "reasonable guess #2 - [39, 36, 20, 3, 2]",
+      "comment_4": "reddit survey - [25, 46, 22, 3, 4]",
+      "comment_5": "    reddit link (PREFERRED group size) - https://www.reddit.com/r/EscapefromTarkov/comments/ky4bqv/poll_what_is_your_preferred_group_size/",
+      "distribution": [
+        39,
+        36,
+        20,
+        3,
+        2
+      ]
+    }
+  },
+  "bot_waves": {
+    "enabled": true,
+    "comment_0": "default - false / 1.0 / 1.4 / 1.8 / 10",
+    "comment_1": "it's already tuned for best FPS",
+    "as_online": false,
+    "low": 1.0,
+    "medium": 1.3,
+    "high": 1.6,
+    "horde": 10.0
+  },
+  "bot_count": {
+    "enabled": true,
+    "comment_0": "default - 12 / 100, recommend 8 / 60",
+    "comment_1": "it's already tuned for best FPS",
+    "max_alive_bots": 8,
+    "local_bots_count": 60
+  },
+  "bot_difficulty": {
+    "enabled": true,
+    "comment_0": "default - AsOnline / false / false / true / true",
+    "comment_1": "default_raid_difficulty - Easy / Medium / AsOnline / Hard / Impossible ",
+    "comment_2": "raider_ai_for_scav - apply raider AI to scavs",
+    "comment_3": "support_easy_mode - true: forcefully allow easy/normal difficulty for all bots",
+    "comment_4": "progressive_gear - true: progressive bot gear according to player level",
+    "default_raid_difficulty": "AsOnline",
+    "raider_ai_for_scav": false,
+    "support_easy_mode": true,
+    "progressive_gear": true,
+    "comment_5": "default - 100 / 90 / 100 / 90 / 100 / 90 / 75 / 75 / 75 / 50 / true",
+    "scav_helmet_chance": 100,
+    "scav_armor_chance": 90,
+    "pmc_helmet_chance": 100,
+    "pmc_earpiece_chance": 90,
+    "pmc_armor_chance": 100,
+    "pmc_backpack_chance": 90,
+    "pmc_helmet_side": 75,
+    "pmc_helmet_visor": 75,
+    "pmc_helmet_mount": 75,
+    "pmc_helmet_nvg": 50,
+    "pmc_hp_boost": false
+  },
+  "boss_chance": {
+    "enabled": false,
+    "comment_0": "changes boss spawn chance by boss name regardless of locations",
+    "comment_1": "default - true / 28 / 38 / 38 / 43 / 35 / 39",
+    "comment_2": "adaptive - true: bosses wil spawn more frequently when you have tasks",
+    "adaptive": true,
+    "sectantPriest": 28,
+    "bossBully": 38,
+    "bossKilla": 38,
+    "bossGluhar": 43,
+    "bossSanitar": 35,
+    "bossKojaniy": 39
+  },
+  "check_inventory_integrity": {
+    "comment": "recovery for lost stash items (it's not caused by this mod)",
+    "enabled": true
+  },
+  "no_save_ticket": {
+    "comment": "possessing no_save_ticket prevents your profile from being saved after raid",
+    "enabled": true
+  },
+  "fix_ammunitions": {
+    "comment": "fix for ammunitions",
+    "enabled": true
+  },
+  "fix_assorts": {
+    "comment": "fix for trader assorts",
+    "enabled": true
+  },
+  "fix_barter_trades": {
+    "comment": "fix for barter trades",
+    "enabled": true
+  },
+  "fix_bosses": {
+    "comment": "fix for bosses",
+    "enabled": true,
+    "loose_loot_min": 4,
+    "loose_loot_max": 8,
+    "special_items_min": 1,
+    "special_items_max": 2
+  },
+  "fix_bot_generation": {
+    "comment_0": "fix for bot generation",
+    "enabled": true,
+    "comment_1": "pistolier_chance - chance for pmc bot to be a pistolier, 0 to 100",
+    "comment_2": "faction_armband - blue for usec, yellow for bear",
+    "pistolier_chance": 10,
+    "faction_armband": true
+  },
+  "fix_containers": {
+    "comment": "fix for containers",
+    "enabled": true
+  },
+  "fix_hideout_speed": {
+    "comment_0": "fix for hideout upgrade/production speed",
+    "enabled": true,
+    "commend_1": "default - true / 1",
+    "exclude_bitcoin_production": true,
+    "multiplier": 500
+  },
+  "fix_https_server": {
+    "comment": "fix for HttpServer.js",
+    "enabled": false
+  },
+  "fix_inraid_controller": {
+    "comment": "fix for InraidController.js",
+    "enabled": true
+  },
+  "fix_insurance": {
+    "comment_0": "fix for insurance",
+    "comment_1": "recommend - true / 0.35 / 45",
+    "enabled": true,
+    "price_multiplier": 0.35,
+    "return_chance": 45
+  },
+  "fix_load_timer": {
+    "comment": "fix for load timer",
+    "enabled": true
+  },
+  "fix_locales": {
+    "comment": "fix for locales",
+    "enabled": true
+  },
+  "fix_locations": {
+    "comment": "fix for maps",
+    "enabled": true
+  },
+  "fix_location_generator": {
+    "comment_0": "fix for LocationGenerator.js",
+    "enabled": true,
+    "comment_1": "peek_spawn - true: print rare item spawns to log",
+    "peek_spawn": true
+  },
+  "fix_logger": {
+    "comment": "fix for Logger.js",
+    "enabled": false
+  },
+  "fix_meds": {
+    "comment": "fix for meds",
+    "enabled": true
+  },
+  "fix_mods": {
+    "comment": "fix for mods",
+    "enabled": true
+  },
+  "fix_notifier": {
+    "comment": "fix for notifier",
+    "enabled": true
+  },
+  "fix_quests": {
+    "comment_0": "fix for quests",
+    "comment_1": "recommend - true / false / true / true / true",
+    "enabled": true,
+    "cheat_huntsman_controller": false,
+    "cheat_shooter_born": true,
+    "cheat_grenadier": true,
+    "cheat_huntsman_perimeter": true,
+    "comment_2": "recommend - true / true / true / true / true / true",
+    "cheat_huntsman_watchman": true,
+    "cheat_friend_from_west_1": true,
+    "cheat_tarkov_shooter_3": true,
+    "cheat_tarkov_shooter_5": true,
+    "cheat_tarkov_shooter_6": true,
+    "cheat_tarkov_shooter_7": true
+  },
+  "fix_ragfair": {
+    "comment_0": "fix for ragfair",
+    "comment_1": "recommend - true / 0.8 / 1.2 / 1000 / 20",
+    "enabled": true,
+    "dynamic_price_min": 0.8,
+    "dynamic_price_max": 1.2,
+    "batch_size": 2000,
+    "market_level": 20
+  },
+  "fix_rates": {
+    "comment_0": "fix for several rates",
+    "comment_1": "default - 1.0",
+    "comment_2": "recommend - 4.0 to match with level progress",
+    "enabled": true,
+    "skill_rate": 4.0
+  },
+  "fix_save_server": {
+    "comment": "fix for SaveServer.js",
+    "enabled": false
+  },
+  "fix_scav_cooldown": {
+    "comment_0": "fix for scav cooldown",
+    "enabled": true,
+    "commend_1": "default - 1200",
+    "cooldown": 60
+  },
+  "fix_sniper_skill": {
+    "comment": "fix for starting sniper skill",
+    "enabled": true
+  },
+  "fix_trader": {
+    "comment": "fix for traders",
+    "enabled": true
+  },
+  "fix_weapons": {
+    "comment": "fix for weapons",
+    "enabled": true,
+    "akm_tlok_support": true
+  },
+  "fix_weather": {
+    "comment": "fix for horrible weather",
+    "enabled": true
+  },
+  "location": {
+    "enabled": true,
+    "comment_0": "WIP. not effective.",
+    "bigmap": {
+      "comment": "default - 265 / 300",
+      "DistToActivate": 120,
+      "DistToSleep": 140
+    },
+    "factory4_day": {
+      "comment": "default - 140 / 150",
+      "DistToActivate": 120,
+      "DistToSleep": 140
+    },
+    "factory4_night": {
+      "comment": "default - 100 / 120",
+      "DistToActivate": 100,
+      "DistToSleep": 120
+    },
+    "interchange": {
+      "comment": "default - no default ",
+      "DistToActivate": 120,
+      "DistToSleep": 140
+    },
+    "laboratory": {
+      "comment": "default - 140 / 160",
+      "DistToActivate": 120,
+      "DistToSleep": 140
+    },
+    "rezervbase": {
+      "comment": "default - 330 / 350",
+      "DistToActivate": 120,
+      "DistToSleep": 140
+    },
+    "shoreline": {
+      "comment": "default - 260 / 300",
+      "DistToActivate": 120,
+      "DistToSleep": 140
+    },
+    "woods": {
+      "comment": "default - 265 / 300",
+      "DistToActivate": 120,
+      "DistToSleep": 140
+    }
+  }
+}
