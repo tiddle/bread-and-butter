@@ -158,6 +158,7 @@
     "bossKilla": 38,
     "bossGluhar": 43,
     "bossSanitar": 35,
+    "bossTagilla": 38,
     "bossKojaniy": 39
   },
   "check_inventory_integrity": {

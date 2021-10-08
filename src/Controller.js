@@ -306,6 +306,7 @@ class LC {
         LC.backup.bots.bossgluhar = JSON.stringify(DatabaseServer.tables.bots.types.bossgluhar);
         LC.backup.bots.bosskilla = JSON.stringify(DatabaseServer.tables.bots.types.bosskilla);
         LC.backup.bots.bosskojaniy = JSON.stringify(DatabaseServer.tables.bots.types.bosskojaniy);
+        LC.backup.bots.bosstagilla = JSON.stringify(DatabaseServer.tables.bots.types.bosstagilla);
         LC.backup.bots.bosssanitar = JSON.stringify(DatabaseServer.tables.bots.types.bosssanitar);
         LC.backup.bots.bosstest = JSON.stringify(DatabaseServer.tables.bots.types.bosstest);
         LC.backup.bots.cursedassault = JSON.stringify(DatabaseServer.tables.bots.types.cursedassault);
@@ -643,6 +644,7 @@ class LC {
                         case 'bossKilla':
                         case 'bossGluhar':
                         case 'bossKojaniy':
+                        case 'bossTagilla':
                             if (boss.generation && boss.generation.items) {
                                 boss.generation.items.looseLoot.min = LC.config.fix_bosses.loose_loot_min;
                                 boss.generation.items.looseLoot.max = LC.config.fix_bosses.loose_loot_max;
@@ -2174,6 +2176,12 @@ class LC {
                     case 'woods':
                         boss = findBoss(map, 'bossKojaniy');
                         break;
+                    case 'factory4_day':
+                        boss = findBoss(map, 'bossTagilla');
+                        break;
+                    case 'factory4_night':
+                        boss = findBoss(map, 'bossTagilla');
+                        break;
                     default:
                 }
                 if (boss) {
@@ -2309,6 +2317,7 @@ class LC {
         const bossgluhar = JSON.parse(LC.backup.bots.bossgluhar);
         const bosskilla = JSON.parse(LC.backup.bots.bosskilla);
         const bosskojaniy = JSON.parse(LC.backup.bots.bosskojaniy);
+        const bosstagilla = JSON.parse(LC.backup.bots.bosstagilla);
         const bosssanitar = JSON.parse(LC.backup.bots.bosssanitar);
         const cursedassault = JSON.parse(LC.backup.bots.cursedassault);
         const followerbully = JSON.parse(LC.backup.bots.followerbully);
@@ -2324,7 +2333,7 @@ class LC {
         const sectantwarrior = JSON.parse(LC.backup.bots.sectantwarrior);
         const usec = JSON.parse(LC.backup.bots.usec);
         if (LC.config.bot_difficulty.support_easy_mode) {
-            const targetBotTypes = [bossbully, bossgluhar, bosskilla, bosskojaniy, bosssanitar,
+            const targetBotTypes = [bossbully, bossgluhar, bosskilla, bosskojaniy, bosstagilla, bosssanitar, 
                 cursedassault, followerbully, followergluharassault, followergluharscout, followergluharsecurity,
                 followergluharsnipe, followerkojaniy, followersanitar, pmcbot, sectantpriest, sectantwarrior];
             for (let botTypeIdx in targetBotTypes) {
@@ -2361,6 +2370,7 @@ class LC {
         DatabaseServer.tables.bots.types.bossgluhar = bossgluhar;
         DatabaseServer.tables.bots.types.bosskilla = bosskilla;
         DatabaseServer.tables.bots.types.bosskojaniy = bosskojaniy;
+        DatabaseServer.tables.bots.types.bosstagilla = bosstagilla;
         DatabaseServer.tables.bots.types.bosssanitar = bosssanitar;
         DatabaseServer.tables.bots.types.cursedassault = cursedassault;
         DatabaseServer.tables.bots.types.followerbully = followerbully;
@@ -3107,6 +3117,10 @@ class LC {
                             ;
                             boss_chance.bossGluhar = 100;
                             break;
+                        case '60c0c018f7afb4354815096a':
+                            ;
+                            boss_chance.bossTagilla = 100;
+                            break
                         case '5edab4b1218d181e29451435':
                             ;
                             boss_chance.bossSanitar = 100;
@@ -3130,6 +3144,7 @@ class LC {
                     switch (boss.BossName) {
                         case 'sectantPriest':
                         case 'bossSanitar':
+                        case 'bossTagilla':
                         case 'bossBully':
                         case 'bossKilla':
                         case 'bossGluhar':
