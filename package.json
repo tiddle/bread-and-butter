@@ -1,7 +1,7 @@
 {
   "name": "butter",
   "author": "Lone_Simon, Fixed by Carlo (tiddle)",
-  "version": "2.3.47",
+  "version": "2.3.48",
   "license": "NCSA",
   "main": "package.js"
 }
