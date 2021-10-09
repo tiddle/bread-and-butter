@@ -577,7 +577,7 @@ class LI {
     }
 
     static loadDynamicConfig() {
-        LI.config = JSON.parse(VFS.readFile(`user\\mods\\butter\\db\\config.json`));
+        LI.config = require('../db/config.json');
     }
 
     static getMarketPrice(tpl) {

@@ -2115,8 +2115,6 @@ class LC {
         LC.setBotDifficulty(sessionID);
         LC.setBotGear(sessionID);
         LC.setBossChance(sessionID);
-        Logger.log(LC.config.loot_spawnrate);
-        Logger.log(LocationConfig.loot_spawnrate);
         if (LC.config.loot_spawnrate && LC.config.loot_spawnrate.enabled) {
             ;
             LocationConfig.loot_spawnrate = LC.config.loot_spawnrate;
