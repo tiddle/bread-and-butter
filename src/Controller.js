@@ -300,7 +300,6 @@ class LC {
         LC.backup.boss.shoreline = JSON.stringify(DatabaseServer.tables.locations.shoreline.base.BossLocationSpawn);
         LC.backup.boss.woods = JSON.stringify(DatabaseServer.tables.locations.woods.base.BossLocationSpawn);
         LC.backup.bots.assault = JSON.stringify(DatabaseServer.tables.bots.types.assault);
-        LC.backup.bots.assaultgroup = JSON.stringify(DatabaseServer.tables.bots.types.assaultgroup);
         LC.backup.bots.bear = JSON.stringify(DatabaseServer.tables.bots.types.bear);
         LC.backup.bots.bossbully = JSON.stringify(DatabaseServer.tables.bots.types.bossbully);
         LC.backup.bots.bossgluhar = JSON.stringify(DatabaseServer.tables.bots.types.bossgluhar);
@@ -442,7 +441,7 @@ class LC {
         ;
         DatabaseServer.tables.globals.config.RagFair.minUserLevel = LC.config.fix_ragfair.market_level;
         ;
-        DatabaseServer.tables.templates.prices = JSON.parse(VFS.readFile(`user\\mods\\butter\\db\\prices.json`));
+        DatabaseServer.tables.templates.prices = require('../db/prices.json');
         for (let id in DatabaseServer.tables.templates.prices) {
             let price = LC.getMarketPrice(id);
             let scheme = '[[{"count":' + price + ',"_tpl": "5449016a4bdc2d6f028b456f"}]]';
@@ -1179,7 +1178,7 @@ class LC {
             return;
         }
         ;
-        let npcPrices = JSON.parse(VFS.readFile(`user\\mods\\butter\\db\\npc_prices.json`));
+        let npcPrices = require('../db/npc_prices.json');
         for (let traderId in npcPrices) {
             let items = npcPrices[traderId];
             let trader = DatabaseServer.tables.traders[traderId];
@@ -1199,7 +1198,7 @@ class LC {
                 }
             }
         }
-        let sellers = JSON.parse(VFS.readFile(`user\\mods\\butter\\db\\sellers.json`));
+        let sellers = require(`../db/sellers.json`);
         for (let traderId in sellers) {
             let items = sellers[traderId];
             let trader = DatabaseServer.tables.traders[traderId];
@@ -1839,7 +1838,7 @@ class LC {
             return;
         }
         ;
-        let barterTrades = JSON.parse(VFS.readFile(`user\\mods\\butter\\db\\barter_trades.json`));
+        let barterTrades = require('../db/barter_trades.json');
         for (let traderId in barterTrades) {
             let trader = DatabaseServer.tables.traders[traderId];
             let barters = barterTrades[traderId];
@@ -1969,7 +1968,7 @@ class LC {
             return;
         }
         ;
-        let weapons = JSON.parse(VFS.readFile(`user\\mods\\butter\\db\\weapons.json`));
+        let weapons = require('../db/weapons.json');
         for (let id in weapons) {
             let weapon = weapons[id];
             let target = DatabaseServer.tables.templates.items[id];
@@ -1992,7 +1991,7 @@ class LC {
             return;
         }
         ;
-        let mods = JSON.parse(VFS.readFile(`user\\mods\\butter\\db\\mods.json`));
+        let mods = require('../db/mods.json');
         for (let id in mods) {
             let mod = mods[id];
             let target = DatabaseServer.tables.templates.items[id];
@@ -2007,7 +2006,7 @@ class LC {
             return;
         }
         ;
-        let ammunitions = JSON.parse(VFS.readFile(`user\\mods\\butter\\db\\ammunitions.json`));
+        let ammunitions = require('../db/ammunitions.json');
         for (let id in ammunitions) {
             let ammunition = ammunitions[id];
             let target = DatabaseServer.tables.templates.items[id];
@@ -2105,7 +2104,7 @@ class LC {
     }
 
     static loadConfig() {
-        LC.config = JSON.parse(VFS.readFile(`user\\mods\\butter\\db\\config.json`));
+        LC.config = require('../db/config.json');
     }
 
     static applyDynamicConfig(sessionID, map) {
@@ -2116,6 +2115,8 @@ class LC {
         LC.setBotDifficulty(sessionID);
         LC.setBotGear(sessionID);
         LC.setBossChance(sessionID);
+        Logger.log(LC.config.loot_spawnrate);
+        Logger.log(LocationConfig.loot_spawnrate);
         if (LC.config.loot_spawnrate && LC.config.loot_spawnrate.enabled) {
             ;
             LocationConfig.loot_spawnrate = LC.config.loot_spawnrate;
@@ -2343,26 +2344,26 @@ class LC {
             }
         }
         bear.difficulty = {
-            "easy": JSON.parse(VFS.readFile(`user\\mods\\butter\\db\\pmc_difficulty_hard_${LC.getRandomInt(1, 2)}.json`)),
-            "normal": JSON.parse(VFS.readFile(`user\\mods\\butter\\db\\pmc_difficulty_hard_${LC.getRandomInt(1, 2)}.json`)),
-            "hard": JSON.parse(VFS.readFile(`user\\mods\\butter\\db\\pmc_difficulty_hard_${LC.getRandomInt(1, 2)}.json`)),
-            "impossible": JSON.parse(VFS.readFile(`user\\mods\\butter\\db\\pmc_difficulty_impossible_${LC.getRandomInt(1, 2)}.json`))
+            "easy": require(`../db/pmc_difficulty_hard_${LC.getRandomInt(1, 2)}.json`),
+            "normal": require(`../db/pmc_difficulty_hard_${LC.getRandomInt(1, 2)}.json`),
+            "hard": require(`../db/pmc_difficulty_hard_${LC.getRandomInt(1, 2)}.json`),
+            "impossible": require(`../db/pmc_difficulty_impossible_${LC.getRandomInt(1, 2)}.json`)
         };
         usec.difficulty = {
-            "easy": JSON.parse(VFS.readFile(`user\\mods\\butter\\db\\pmc_difficulty_hard_${LC.getRandomInt(1, 2)}.json`)),
-            "normal": JSON.parse(VFS.readFile(`user\\mods\\butter\\db\\pmc_difficulty_hard_${LC.getRandomInt(1, 2)}.json`)),
-            "hard": JSON.parse(VFS.readFile(`user\\mods\\butter\\db\\pmc_difficulty_hard_${LC.getRandomInt(1, 2)}.json`)),
-            "impossible": JSON.parse(VFS.readFile(`user\\mods\\butter\\db\\pmc_difficulty_impossible_${LC.getRandomInt(1, 2)}.json`))
+            "easy": require(`../db/pmc_difficulty_hard_${LC.getRandomInt(1, 2)}.json`),
+            "normal": require(`../db/pmc_difficulty_hard_${LC.getRandomInt(1, 2)}.json`),
+            "hard": require(`../db/pmc_difficulty_hard_${LC.getRandomInt(1, 2)}.json`),
+            "impossible": require(`../db/pmc_difficulty_impossible_${LC.getRandomInt(1, 2)}.json`)
         };
         if (LC.config.bot_difficulty.support_easy_mode) {
-            bear.difficulty.easy = JSON.parse(VFS.readFile(`user\\mods\\butter\\db\\pmc_difficulty_easy_${LC.getRandomInt(1, 2)}.json`));
-            bear.difficulty.normal = JSON.parse(VFS.readFile(`user\\mods\\butter\\db\\pmc_difficulty_normal_${LC.getRandomInt(1, 2)}.json`));
-            usec.difficulty.easy = JSON.parse(VFS.readFile(`user\\mods\\butter\\db\\pmc_difficulty_easy_${LC.getRandomInt(1, 2)}.json`));
-            usec.difficulty.normal = JSON.parse(VFS.readFile(`user\\mods\\butter\\db\\pmc_difficulty_normal_${LC.getRandomInt(1, 2)}.json`));
+            bear.difficulty.easy = require(`../db/pmc_difficulty_easy_${LC.getRandomInt(1, 2)}.json`);
+            bear.difficulty.normal = require(`../db/pmc_difficulty_normal_${LC.getRandomInt(1, 2)}.json`);
+            usec.difficulty.easy = require(`../db/pmc_difficulty_easy_${LC.getRandomInt(1, 2)}.json`);
+            usec.difficulty.normal = require(`../db/pmc_difficulty_normal_${LC.getRandomInt(1, 2)}.json`);
         }
         if (bot_difficulty.raider_ai_for_scav) {
             ;
-            assault.difficulty = JSON.parse(JSON.stringify(assaultgroup.difficulty));
+            assault.difficulty = JSON.parse(JSON.stringify(assault.difficulty));
         }
         DatabaseServer.tables.bots.types.assault = assault;
         DatabaseServer.tables.bots.types.bear = bear;
@@ -3249,9 +3250,9 @@ class LC {
         }
         ;
         if (LC.config.pmc_conversion_chance.apply_assault_group) {
-            BotConfig.pmc.types.assaultGroup = percent;
+            BotConfig.pmc.types.assault = percent;
         } else {
-            BotConfig.pmc.types.assaultGroup = 100;
+            BotConfig.pmc.types.assault = 100;
         }
         BotConfig.pmc.types.assault = percent;
         BotConfig.pmc.types.pmcBot = percent;
