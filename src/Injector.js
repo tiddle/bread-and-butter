@@ -1,9 +1,5 @@
 "use strict";
-const fs = require("fs");
 const zlib = require("zlib");
-const https = require("https");
-const WebSocket = require("ws");
-
 class LI {
     static config = {};
 

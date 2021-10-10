@@ -1,5 +1,4 @@
 "use strict";
-const fs = require("fs");
 const IMMEDIATE_SPAWN = -1;
 
 class LC {
