@@ -6,6 +6,8 @@ This is a copy and paste of the original with only the below changes.
 
 ## Changes
 ### 2.3.49
+* Remove unneseccary `requires`
+### 2.3.49
 * Fix issue with `raider_ai_for_scav` flag
 * Modify loading of config paths via relative paths instead of absolute
 ### 2.3.48
