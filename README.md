@@ -5,8 +5,8 @@ Copied from https://hub.sp-tarkov.com/files/file/156-bread-and-butter/ by Lone_S
 This is a copy and paste of the original with only the below changes.
 
 ## Changes
-### 2.3.49
-* Remove unneseccary `requires`
+### 2.3.50
+* Remove unnecessary `requires`
 ### 2.3.49
 * Fix issue with `raider_ai_for_scav` flag
 * Modify loading of config paths via relative paths instead of absolute
