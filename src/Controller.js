@@ -299,6 +299,7 @@ class LC {
         LC.backup.boss.shoreline = JSON.stringify(DatabaseServer.tables.locations.shoreline.base.BossLocationSpawn);
         LC.backup.boss.woods = JSON.stringify(DatabaseServer.tables.locations.woods.base.BossLocationSpawn);
         LC.backup.bots.assault = JSON.stringify(DatabaseServer.tables.bots.types.assault);
+        LC.backup.bots.assaultgroup = require('../db/assaultgroup.json');
         LC.backup.bots.bear = JSON.stringify(DatabaseServer.tables.bots.types.bear);
         LC.backup.bots.bossbully = JSON.stringify(DatabaseServer.tables.bots.types.bossbully);
         LC.backup.bots.bossgluhar = JSON.stringify(DatabaseServer.tables.bots.types.bossgluhar);
@@ -2310,6 +2311,7 @@ class LC {
         DatabaseServer.tables.bots.core.MAX_WARNS_BEFORE_KILL = 0;
         InraidConfig.raidMenuSettings.aiDifficulty = LC.config.bot_difficulty.default_raid_difficulty;
         const assault = JSON.parse(LC.backup.bots.assault);
+        const assaultgroup = LC.backup.bots.assaultgroup;
         const bear = JSON.parse(LC.backup.bots.bear);
         const bossbully = JSON.parse(LC.backup.bots.bossbully);
         const bossgluhar = JSON.parse(LC.backup.bots.bossgluhar);
@@ -2331,7 +2333,7 @@ class LC {
         const sectantwarrior = JSON.parse(LC.backup.bots.sectantwarrior);
         const usec = JSON.parse(LC.backup.bots.usec);
         if (LC.config.bot_difficulty.support_easy_mode) {
-            const targetBotTypes = [bossbully, bossgluhar, bosskilla, bosskojaniy, bosstagilla, bosssanitar, 
+            const targetBotTypes = [assaultgroup, bossbully, bossgluhar, bosskilla, bosskojaniy, bosstagilla, bosssanitar, 
                 cursedassault, followerbully, followergluharassault, followergluharscout, followergluharsecurity,
                 followergluharsnipe, followerkojaniy, followersanitar, pmcbot, sectantpriest, sectantwarrior];
             for (let botTypeIdx in targetBotTypes) {
@@ -2359,10 +2361,10 @@ class LC {
             usec.difficulty.normal = require(`../db/pmc_difficulty_normal_${LC.getRandomInt(1, 2)}.json`);
         }
         if (bot_difficulty.raider_ai_for_scav) {
-            ;
-            assault.difficulty = JSON.parse(JSON.stringify(assault.difficulty));
+            assault.difficulty = JSON.parse(JSON.stringify(assaultgroup.difficulty));
         }
         DatabaseServer.tables.bots.types.assault = assault;
+        DatabaseServer.tables.bots.types.assaultgroup = assaultgroup;
         DatabaseServer.tables.bots.types.bear = bear;
         DatabaseServer.tables.bots.types.bossbully = bossbully;
         DatabaseServer.tables.bots.types.bossgluhar = bossgluhar;
@@ -2412,6 +2414,7 @@ class LC {
         let bodyParts_regular = '{"Head":{"min":35,"max":35},"Chest":{"min":85,"max":85},"Stomach":{"min":70,"max":70},"LeftArm":{"min":60,"max":60},"RightArm":{"min":60,"max":60},"LeftLeg":{"min":65,"max":65},"RightLeg":{"min":65,"max":65}}';
         let bodyParts_boosted = '{"Head":{"min":35,"max":35},"Chest":{"min":150,"max":150},"Stomach":{"min":120,"max":120},"LeftArm":{"min":100,"max":100},"RightArm":{"min":100,"max":100},"LeftLeg":{"min":110,"max":110},"RightLeg":{"min":110,"max":110}}';
         DatabaseServer.tables.bots.types.assault.BodyParts = JSON.parse(bodyParts_regular);
+        DatabaseServer.tables.bots.types.assaultgroup.BodyParts = JSON.parse(bodyParts_regular);
         if (LC.config.bot_difficulty.pmc_hp_boost) {
             DatabaseServer.tables.bots.types.bear.BodyParts = JSON.parse(bodyParts_boosted);
             DatabaseServer.tables.bots.types.usec.BodyParts = JSON.parse(bodyParts_boosted);
@@ -3247,9 +3250,9 @@ class LC {
         }
         ;
         if (LC.config.pmc_conversion_chance.apply_assault_group) {
-            BotConfig.pmc.types.assault = percent;
+            BotConfig.pmc.types.assaultGroup = percent;
         } else {
-            BotConfig.pmc.types.assault = 100;
+            BotConfig.pmc.types.assaultGroup = 100;
         }
         BotConfig.pmc.types.assault = percent;
         BotConfig.pmc.types.pmcBot = percent;

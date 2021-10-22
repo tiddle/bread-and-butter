@@ -175,11 +175,11 @@
   },
   "fix_assorts": {
     "comment": "fix for trader assorts",
-    "enabled": true
+    "enabled": false 
   },
   "fix_barter_trades": {
     "comment": "fix for barter trades",
-    "enabled": true
+    "enabled": false 
   },
   "fix_bosses": {
     "comment": "fix for bosses",

@@ -242,7 +242,7 @@ class LI {
             let rndLoot = dynamic[rndLootIndex];
             if (!rndLoot.data) {
                 dynamic.splice(rndLootIndex, 1);
-                return {"result": "error"};
+                return { "result": "error" };
             }
             let rndLootTypeIndex = RandomUtil.getInt(0, rndLoot.data.length - 1);
             let data = rndLoot.data[rndLootTypeIndex];
@@ -252,7 +252,7 @@ class LI {
                 if (dynamic[rndLootIndex].data.length === 0) {
                     dynamic.splice(rndLootIndex, 1);
                 }
-                return {"status": "error"};
+                return { "status": "error" };
             }
             data.Id = HashUtil.generate();
             let lootItemsHash = {};
@@ -293,9 +293,9 @@ class LI {
                         peekSpawns("dynamic loot", data.Items[i]._tpl, DatabaseServer.tables.locales.global.en.templates[data.Items[i]._tpl].ShortName);
                     }
                 }
-                return {"status": "success", "data": data, "position": position};
+                return { "status": "success", "data": data, "position": position };
             }
-            return {"status": "fail"};
+            return { "status": "fail" };
         };
         LocationGenerator.generateContainerLoot = function (items) {
             let container = JsonUtil.clone(DatabaseServer.tables.loot.statics[items[0]._tpl]);
@@ -319,7 +319,7 @@ class LI {
                 let item = {};
                 let containerItem = {};
                 let rolledIndex = 0;
-                let result = {success: false};
+                let result = { success: false };
                 let maxAttempts = 20;
                 let maxProbability = container.items[container.items.length - 1].cumulativeChance;
                 while (!result.success && maxAttempts) {
@@ -344,7 +344,7 @@ class LI {
                     let preset = JsonUtil.clone(PresetController.getStandardPreset(item._id));
                     preset._items[0].parentId = parentId;
                     preset._items[0].slotId = "main";
-                    preset._items[0].location = {"x": result.x, "y": result.y, "r": rot};
+                    preset._items[0].location = { "x": result.x, "y": result.y, "r": rot };
                     for (let p in preset._items) {
                         items.push(JSON.parse(JSON.stringify(preset._items[p])));
                         if (preset._items[p].slotId === "mod_magazine") {
@@ -354,7 +354,7 @@ class LI {
                                 "_tpl": item._props.defAmmo,
                                 "parentId": preset._items[p]._id,
                                 "slotId": "cartridges",
-                                "upd": {"StackObjectsCount": mag._props.Cartridges[0]._max_count}
+                                "upd": { "StackObjectsCount": mag._props.Cartridges[0]._max_count }
                             };
                             items.push(cartridges);
                             idSuffix++;
@@ -368,7 +368,7 @@ class LI {
                     "_tpl": item._id,
                     "parentId": parentId,
                     "slotId": "main",
-                    "location": {"x": result.x, "y": result.y, "r": rot}
+                    "location": { "x": result.x, "y": result.y, "r": rot }
                 };
                 if (item._parent !== "543be5dd4bdc2deb348b4569") {
                     container.items.splice(rolledIndex, 1);
@@ -376,7 +376,7 @@ class LI {
                 let cartridges;
                 if (item._parent === "543be5dd4bdc2deb348b4569" || item._parent === "5485a8684bdc2da71d8b4567") {
                     let stackCount = RandomUtil.getInt(item._props.StackMinRandom, item._props.StackMaxRandom);
-                    containerItem.upd = {"StackObjectsCount": stackCount};
+                    containerItem.upd = { "StackObjectsCount": stackCount };
                 } else if (item._parent === "543be5cb4bdc2deb348b4568") {
                     idSuffix++;
                     cartridges = {
@@ -384,7 +384,7 @@ class LI {
                         "_tpl": item._props.StackSlots[0]._props.filters[0].Filter[0],
                         "parentId": containerItem._id,
                         "slotId": "cartridges",
-                        "upd": {"StackObjectsCount": item._props.StackMaxRandom}
+                        "upd": { "StackObjectsCount": item._props.StackMaxRandom }
                     };
                 } else if (item._parent === "5448bc234bdc2d3c308b4569") {
                     idSuffix++;
@@ -393,7 +393,7 @@ class LI {
                         "_tpl": item._props.Cartridges[0]._props.filters[0].Filter[0],
                         "parentId": containerItem._id,
                         "slotId": "cartridges",
-                        "upd": {"StackObjectsCount": item._props.Cartridges[0]._max_count}
+                        "upd": { "StackObjectsCount": item._props.Cartridges[0]._max_count }
                     };
                 }
                 if (LI.config.fix_location_generator.peek_spawn) {
@@ -566,7 +566,7 @@ class LI {
                 }
                 price = PaymentController.fromRUB(price, currency);
                 price = (price > 0) ? price : 1;
-                output[item._id] = [[{"_tpl": currency, "count": price.toFixed(0)}]];
+                output[item._id] = [[{ "_tpl": currency, "count": price.toFixed(0) }]];
             }
             return output;
         };
