@@ -5,6 +5,8 @@ Copied from https://hub.sp-tarkov.com/files/file/156-bread-and-butter/ by Lone_S
 This is a copy and paste of the original with only the below changes.
 
 ## Changes
+### 2.3.52
+* Add version compatibility
 ### 2.3.51
 * Add back `assaultgroup` to hopefully add back harder PMCs
 ### 2.3.50
