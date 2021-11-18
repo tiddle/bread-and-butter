@@ -560,7 +560,7 @@ class LI {
                 if ("upd" in item && "Dogtag" in item.upd && ItemHelper.isDogtag(item._tpl)) {
                     price *= item.upd.Dogtag.Level;
                 }
-                price *= ItemHelper.getItemQualityPrice(item);
+                price *= ItemHelper.getItemQualityModifier(item);
                 if (applyDiscount && trader.discount > 0) {
                     price -= (trader.discount / 100) * price;
                 }
