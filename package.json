@@ -3,5 +3,6 @@
   "author": "Lone_Simon, Fixed by Carlo (tiddle)",
   "version": "2.3.50",
   "license": "NCSA",
-  "main": "package.js"
+  "main": "package.js",
+  "akiVersion": "2.1.0"
 }
