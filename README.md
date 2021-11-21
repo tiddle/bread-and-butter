@@ -5,6 +5,8 @@ Copied from https://hub.sp-tarkov.com/files/file/156-bread-and-butter/ by Lone_S
 This is a copy and paste of the original with only the below changes.
 
 ## Changes
+### 2.3.54
+* Fix for not working flea market
 ### 2.3.53
 * Fix renamed function
 ### 2.3.52
