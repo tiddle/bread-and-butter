@@ -7,6 +7,7 @@ This is a copy and paste of the original with only the below changes.
 ## Changes
 ### 2.3.54
 * Fix for not working flea market
+  * This will cause a lot of item warnings, but from what i can see, it can be safely ignored?
 ### 2.3.53
 * Fix renamed function
 ### 2.3.52
