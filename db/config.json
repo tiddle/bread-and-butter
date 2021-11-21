@@ -273,15 +273,6 @@
     "cheat_tarkov_shooter_6": true,
     "cheat_tarkov_shooter_7": true
   },
-  "fix_ragfair": {
-    "comment_0": "fix for ragfair",
-    "comment_1": "recommend - true / 0.8 / 1.2 / 1000 / 20",
-    "enabled": true,
-    "dynamic_price_min": 0.8,
-    "dynamic_price_max": 1.2,
-    "batch_size": 2000,
-    "market_level": 20
-  },
   "fix_rates": {
     "comment_0": "fix for several rates",
     "comment_1": "default - 1.0",

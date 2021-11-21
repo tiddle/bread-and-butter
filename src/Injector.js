@@ -15,7 +15,6 @@ class LI {
         LI.fixLocations();
         LI.fixLogger();
         LI.fixNotifier();
-        LI.fixRagfair();
         LI.fixSave();
         LI.fixTrader();
     }
@@ -445,53 +444,6 @@ class LI {
                 }
                 return NotifierCallbacks.selectProfile(url, info, sessionID);
             }
-        };
-    }
-
-    static fixRagfair() {
-        if (!LI.config.fix_ragfair || !LI.config.fix_ragfair.enabled) {
-            return;
-        }
-        ;
-        PresetController.initialize();
-        RagfairServer.generateDynamicOffers = function () {
-            const config = RagfairConfig.dynamic;
-            const count = config.threshold + config.batchSize;
-            const assort = JsonUtil.clone(DatabaseServer.tables.traders["ragfair"].assort);
-            const assortItems = assort.items.filter((item) => {
-                return item.slotId === "hideout";
-            });
-            while (RagfairServer.offers.length < count) {
-                let item = RandomUtil.getArrayValue(assortItems);
-                const isPreset = PresetController.isPreset(item._id);
-                item.upd.StackObjectsCount = (isPreset) ? 1 : Math.round(RandomUtil.getInt(config.stack.min, config.stack.max));
-                let getStandardPresetItems = function (item) {
-                    const standard = PresetController.getStandardPreset(item._tpl);
-                    const preset = JsonUtil.clone(standard._items);
-                    item._id = standard._id;
-                    return RagfairServer.reparentPresets(item, preset);
-                };
-                let items = (isPreset) ? getStandardPresetItems(item) : [...[item], ...ItemHelper.findAndReturnChildrenByAssort(item._id, assort.items)];
-                const userID = HashUtil.generate();
-                const barterScheme = RagfairServer.getOfferRequirements(items);
-                const price = RagfairServer.getBarterPrice(barterScheme);
-                RagfairServer.createOffer(
-                    userID,
-                    TimeUtil.getTimestamp(),
-                    items,
-                    barterScheme,
-                    assort.loyal_level_items[item._id],
-                    price,
-                    isPreset);
-            }
-        };
-        RagfairServer.getDynamicOfferPrice = function (items, currency) {
-            let price = PaymentController.fromRUB(RagfairServer.prices.dynamic[items[0]._tpl], currency);
-            price = Math.round(price * RandomUtil.getFloat(RagfairConfig.dynamic.price.min, RagfairConfig.dynamic.price.max));
-            if (price < 1) {
-                price = 1;
-            }
-            return price;
         };
     }
 
